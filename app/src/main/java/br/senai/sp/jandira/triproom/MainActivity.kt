@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting()
+                    TelaLogin()
                 }
             }
         }
@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting() {
+fun TelaLogin() {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -221,11 +221,182 @@ fun Greeting() {
         }
     }
 }
+@Composable
+fun TelaCadastro() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(120.dp)
+                    .height(50.dp)
+                    .background(
+                        Color(0xFFCF06F0),
+                        shape = RoundedCornerShape(bottomStart = 10.dp)
+                    )
+            )
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(550.dp)
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+
+            ) {
+            Text(
+                text = "Sign Up",
+                fontSize = 58.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFCF06F0)
+            )
+            Text(
+                text = "Create a new account",
+                color = Color(0xFFA09C9C)
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+            Image(
+                painter = painterResource(id = R.drawable.group),
+                contentDescription = "",
+                Modifier
+                    .width(100.dp)
+                    .height(100.dp)
+            )
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults
+                    .colors(
+                        unfocusedContainerColor = Color(0xffffffff),
+                    ),
+                label = {
+                    Text(text = "E-mail")
+                },
+                modifier = Modifier
+                    .width(600.dp),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Email,
+                        contentDescription = null
+                    )
+                }
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults
+                    .colors(
+                        unfocusedContainerColor = Color(0xffffffff),
+                    ),
+                label = {
+                    Text(text = "Password")
+                },
+                modifier = Modifier
+                    .width(600.dp),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Lock,
+                        contentDescription = null
+                    )
+                }
+            )
+            OutlinedTextFieldDefaults
+                .colors(
+                    unfocusedBorderColor = Color(0xFFCF06F0),
+                    focusedBorderColor = Color(0xFFCF06F0),
+                    unfocusedLabelColor = Color(0xFFCF06F0),
+                    disabledLeadingIconColor = Color(0xFFCF06F0),
+                    focusedLeadingIconColor = Color(0xFFCF06F0)
+                )
+            Spacer(modifier = Modifier.height(40.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Column(horizontalAlignment = Alignment.End) {
+                    Button(
+                        onClick = { /*TODO*/ },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFCF06F0),
+                            contentColor = Color(0xFFFFFFFF)
+                        ),
+                        modifier = Modifier
+                            .width(150.dp)
+                            .height(60.dp)
+                    ) {
+                        Row {
+                            Text(
+                                text = "SIGN IN",
+                                fontWeight = FontWeight.ExtraBold,
+                                fontSize = 16.sp
+                            )
+                            Image(
+                                painter = painterResource(id = R.drawable.vector),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(18.dp)
+                                    .offset(x = 10.dp, y = 2.dp),
+                                contentScale = ContentScale.Crop,
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(30.dp))
+                    Row {
+                        Text(
+                            text = "Don’t have an account? ",
+                            color = Color(0xFFA09C9C)
+                        )
+                        Text(
+                            text = "Sign up",
+                            color = Color(0xFFCF06F0),
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    }
+                }
+
+            }
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(120.dp)
+                    .height(50.dp)
+                    .offset(y = 31.dp)
+                    .background(
+                        Color(0xFFCF06F0),
+                        shape = RoundedCornerShape(topEnd = 10.dp)
+                    )
+            )
+        }
+    }
+}
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview() {
+fun TelaloginPreview() {
     TripRoomTheme {
-        Greeting()
+        TelaLogin()
+    }
+}
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun TelaCadastroPreview() {
+    TripRoomTheme {
+        TelaCadastro()
     }
 }
