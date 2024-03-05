@@ -22,9 +22,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -113,6 +117,9 @@ fun TelaLogin() {
                 colors = TextFieldDefaults
                     .colors(
                         unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
                     ),
                 label = {
                     Text(text = "E-mail")
@@ -134,6 +141,9 @@ fun TelaLogin() {
                 colors = TextFieldDefaults
                     .colors(
                         unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
                     ),
                 label = {
                     Text(text = "Password")
@@ -147,14 +157,6 @@ fun TelaLogin() {
                     )
                 }
             )
-            OutlinedTextFieldDefaults
-                .colors(
-                    unfocusedBorderColor = Color(0xFFCF06F0),
-                    focusedBorderColor = Color(0xFFCF06F0),
-                    unfocusedLabelColor = Color(0xFFCF06F0),
-                    disabledLeadingIconColor = Color(0xFFCF06F0),
-                    focusedLeadingIconColor = Color(0xFFCF06F0)
-                )
             Spacer(modifier = Modifier.height(40.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -236,7 +238,7 @@ fun TelaCadastro() {
             Box(
                 modifier = Modifier
                     .width(120.dp)
-                    .height(50.dp)
+                    .height(40.dp)
                     .background(
                         Color(0xFFCF06F0),
                         shape = RoundedCornerShape(bottomStart = 10.dp)
@@ -246,8 +248,8 @@ fun TelaCadastro() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(550.dp)
-                .padding(20.dp),
+                .height(650.dp)
+                .padding(5.dp),
             horizontalAlignment = Alignment.CenterHorizontally
 
             ) {
@@ -276,6 +278,59 @@ fun TelaCadastro() {
                 colors = TextFieldDefaults
                     .colors(
                         unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
+                    ),
+                label = {
+                    Text(text = "Username")
+                },
+                modifier = Modifier
+                    .width(600.dp),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Person,
+                        contentDescription = null,
+                        modifier = Modifier.
+                        height(50.dp)
+                    )
+                }
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults
+                    .colors(
+                        unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
+                    ),
+                label = {
+                    Text(text = "Phone")
+                },
+                modifier = Modifier
+                    .width(600.dp),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Phone,
+                        contentDescription = null
+                    )
+                }
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults
+                    .colors(
+                        unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
                     ),
                 label = {
                     Text(text = "E-mail")
@@ -289,7 +344,7 @@ fun TelaCadastro() {
                     )
                 }
             )
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
@@ -297,6 +352,9 @@ fun TelaCadastro() {
                 colors = TextFieldDefaults
                     .colors(
                         unfocusedContainerColor = Color(0xffffffff),
+                        unfocusedLeadingIconColor = Color(0xFFCF06F0),
+                        unfocusedIndicatorColor = Color(0xFFCF06F0),
+                        focusedIndicatorColor = Color(0xFFCF06F0)
                     ),
                 label = {
                     Text(text = "Password")
@@ -310,6 +368,26 @@ fun TelaCadastro() {
                     )
                 }
             )
+            Spacer(modifier = Modifier.height(0.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(35.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+                
+            ) {
+                Checkbox(
+                    colors = CheckboxDefaults.colors(
+                        uncheckedColor = Color(0xFFCF06F0)
+                    ),
+                    checked = false,
+                    onCheckedChange = {}
+                )
+                Text(
+                    text = "Over 18?"
+                )
+            }
             OutlinedTextFieldDefaults
                 .colors(
                     unfocusedBorderColor = Color(0xFFCF06F0),
@@ -318,12 +396,13 @@ fun TelaCadastro() {
                     disabledLeadingIconColor = Color(0xFFCF06F0),
                     focusedLeadingIconColor = Color(0xFFCF06F0)
                 )
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(1.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
                 Column(horizontalAlignment = Alignment.End) {
+                    Spacer(modifier = Modifier.height(8.dp))
                     Button(
                         onClick = { /*TODO*/ },
                         colors = ButtonDefaults.buttonColors(
@@ -331,12 +410,13 @@ fun TelaCadastro() {
                             contentColor = Color(0xFFFFFFFF)
                         ),
                         modifier = Modifier
-                            .width(150.dp)
+                            .fillMaxWidth()
                             .height(60.dp)
+                            .padding(10.dp, 0.dp)
                     ) {
                         Row {
                             Text(
-                                text = "SIGN IN",
+                                text = "CREATE ACCOUNT",
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 16.sp
                             )
@@ -350,14 +430,17 @@ fun TelaCadastro() {
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.height(30.dp))
-                    Row {
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Row(
+                        modifier = Modifier
+                            .padding(12.dp,0.dp)
+                    ) {
                         Text(
-                            text = "Don’t have an account? ",
-                            color = Color(0xFFA09C9C)
+                            text = "Already have an account?",
+                            color = Color(0xFF7A3C3C)
                         )
                         Text(
-                            text = "Sign up",
+                            text = "Sign in",
                             color = Color(0xFFCF06F0),
                             fontWeight = FontWeight.ExtraBold
                         )
@@ -366,16 +449,18 @@ fun TelaCadastro() {
 
             }
         }
+        Spacer(modifier = Modifier.height(15.dp))
         Row(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(50.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Box(
                 modifier = Modifier
                     .width(120.dp)
-                    .height(50.dp)
-                    .offset(y = 31.dp)
+                    .height(40.dp)
+                    .offset(y = 33.dp)
                     .background(
                         Color(0xFFCF06F0),
                         shape = RoundedCornerShape(topEnd = 10.dp)
