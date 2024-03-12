@@ -420,14 +420,6 @@ fun TelaCadastro() {
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 16.sp
                             )
-                            Image(
-                                painter = painterResource(id = R.drawable.vector),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .width(18.dp)
-                                    .offset(x = 10.dp, y = 2.dp),
-                                contentScale = ContentScale.Crop,
-                            )
                         }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
