@@ -1,5 +1,7 @@
 package br.senai.sp.jandira.triproom
 
+import android.content.ClipData.Item
+import android.media.RouteListingPreference
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,21 +14,29 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
@@ -462,18 +472,166 @@ fun TelaCadastro() {
     }
 }
 
+@Composable
+fun TelaHome(){
+    Column(
+        modifier = Modifier
+            .background(Color(0xFFF6F6F6))
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(230.dp)
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.paris),
+                contentDescription = "Imagem da torre eifel",
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ){
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .padding(10.dp)
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.usuario),
+                        contentDescription = "imagem usuario",
+                        modifier = Modifier
+                            .size(width = 70.dp, height = 70.dp)
+                    )
+                    Text(
+                        text = "Susanna Hoffs",
+                        color = Color.White,
+                        modifier = Modifier
+                            .offset(x = -18.dp, y = 6.dp)
+                    )
+                }
+
+            }
+
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Bottom,
+                modifier = Modifier
+                    .width(200.dp)
+                    .fillMaxHeight()
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.Start,
+                    modifier = Modifier
+                        .offset(x = 0.dp, y = -3.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                        .offset(x = 0.dp, y = 10.dp)
+                    ){
+                        Icon(
+                            imageVector = Icons.Filled.LocationOn,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
+                        Text(
+                            text = "You're in Paris",
+                            color = Color.White,
+                        )
+                    }
+                    Text(
+                        text = "My Trips",
+                        fontSize = 30.sp,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+            }
+
+        }
+
+     Column {
+           Text(
+             text = "Categories",
+             color = Color(0xFF565454),
+             modifier = Modifier
+                .padding(20.dp)
+      )
+     LazyRow {
+        item{
+            Card(
+                modifier = Modifier
+                    .size(width = 150.dp, height = 90.dp),
+                colors = CardDefaults
+                    .cardColors(
+                        containerColor = Color(0xFFCF06F0)
+                    )
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) {
+                        Icon(
+                            imageVector = Icons.Filled.Landscape,
+                            contentDescription = "",
+                            tint = Color.White
+                            )
+                        Text(
+                            text = "Montain",
+                            color = Color.White
+                        )
+                }
+
+            }
+        }
+     }
+
+}
+    }
+
+}
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TelaloginPreview() {
     TripRoomTheme {
-        TelaLogin()
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            TelaLogin()
+        }
     }
 }
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TelaCadastroPreview() {
     TripRoomTheme {
-        TelaCadastro()
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            TelaCadastro()
+        }
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun TelaHomePreview() {
+    TripRoomTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            TelaHome()
+        }
     }
 }
