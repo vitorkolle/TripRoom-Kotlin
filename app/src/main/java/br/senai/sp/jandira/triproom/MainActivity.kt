@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.BeachAccess
@@ -55,6 +56,8 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -63,6 +66,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -126,9 +131,16 @@ fun TelaLogin() {
                 color = Color(0xFFA09C9C)
             )
             Spacer(modifier = Modifier.height(90.dp))
+
+            var emailState = remember{
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = emailState.value,
+                onValueChange = {
+                    emailState.value = it
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -150,9 +162,17 @@ fun TelaLogin() {
                 }
             )
             Spacer(modifier = Modifier.height(20.dp))
+
+            var senhaState = remember {
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = senhaState.value,
+                onValueChange = {
+                    senhaState.value = it
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                visualTransformation = PasswordVisualTransformation(),
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -287,9 +307,15 @@ fun TelaCadastro() {
                     .width(100.dp)
                     .height(100.dp)
             )
+
+            var nomeState = remember {
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = nomeState.value,
+                onValueChange = {
+                    nomeState.value = it
+                },
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -313,9 +339,15 @@ fun TelaCadastro() {
                 }
             )
             Spacer(modifier = Modifier.height(10.dp))
+
+            var phoneState = remember {
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = phoneState.value,
+                onValueChange = {
+                    phoneState.value = it
+                },
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -334,12 +366,19 @@ fun TelaCadastro() {
                         imageVector = Icons.Filled.Phone,
                         contentDescription = null
                     )
-                }
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
             Spacer(modifier = Modifier.height(10.dp))
+            var emailState = remember{
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = emailState.value,
+                onValueChange = {
+                    emailState.value = it
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -361,9 +400,16 @@ fun TelaCadastro() {
                 }
             )
             Spacer(modifier = Modifier.height(10.dp))
+            var senhaState = remember {
+                mutableStateOf("")
+            }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = senhaState.value,
+                onValueChange = {
+                    senhaState.value = it
+                },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                visualTransformation = PasswordVisualTransformation(),
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults
                     .colors(
@@ -393,12 +439,17 @@ fun TelaCadastro() {
                 horizontalArrangement = Arrangement.Start
                 
             ) {
+                var checkState = remember {
+                    mutableStateOf(false)
+                }
                 Checkbox(
                     colors = CheckboxDefaults.colors(
                         uncheckedColor = Color(0xFFCF06F0)
                     ),
-                    checked = false,
-                    onCheckedChange = {}
+                    checked = checkState.value,
+                    onCheckedChange = {
+                        checkState.value = it
+                    }
                 )
                 Text(
                     text = "Over 18?"
@@ -660,31 +711,12 @@ fun TelaHome(){
              }
          }
      }
-         Box(
-             modifier = Modifier
-                 .width(70.dp)
-                 .offset(x = 300.dp, y = 220.dp)
-                 .height(70.dp)
-                 .background(
-                     color = Color(0xFFCF06F0),
-                     shape = RoundedCornerShape(40.dp)
-                 )
-         ){
-             Icon(
-                 imageVector = Icons.Default.Add,
-                 tint = Color.White,
-                 contentDescription = "",
-                 modifier = Modifier
-                     .width(80.dp)
-                     .height(80.dp)
-             )
-         }
          OutlinedTextField(
              value ="",
              onValueChange = {},
              modifier = Modifier
                  .fillMaxWidth()
-                 .padding( start = 15.dp, bottom = 15.dp, end = 15.dp)
+                 .padding(start = 15.dp, bottom = 15.dp, end = 15.dp)
                  .offset(y = -30.dp),
              colors = TextFieldDefaults
                  .colors(
