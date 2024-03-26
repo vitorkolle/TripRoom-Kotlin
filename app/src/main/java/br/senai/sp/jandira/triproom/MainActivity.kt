@@ -26,20 +26,26 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.BeachAccess
+import androidx.compose.material.icons.filled.DownhillSkiing
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -561,10 +567,14 @@ fun TelaHome(){
              modifier = Modifier
                 .padding(20.dp)
       )
-     LazyRow {
-        item{
+     LazyRow(
+         modifier = Modifier
+             .offset(x = 10.dp)
+     ){
+        item {
             Card(
                 modifier = Modifier
+                    .padding(end = 10.dp)
                     .size(width = 150.dp, height = 90.dp),
                 colors = CardDefaults
                     .cardColors(
@@ -577,22 +587,263 @@ fun TelaHome(){
                     modifier = Modifier
                         .fillMaxSize()
                 ) {
-                        Icon(
-                            imageVector = Icons.Filled.Landscape,
-                            contentDescription = "",
-                            tint = Color.White
-                            )
-                        Text(
-                            text = "Montain",
-                            color = Color.White
-                        )
+                    Icon(
+                        imageVector = Icons.Filled.Landscape,
+                        contentDescription = "",
+                        tint = Color.White
+                    )
+                    Text(
+                        text = "Mountain",
+                        color = Color.White
+                    )
                 }
 
             }
         }
-     }
+         item{
+             Card(
+                 modifier = Modifier
+                     .padding(end = 10.dp)
+                     .size(width = 150.dp, height = 90.dp),
+                 colors = CardDefaults
+                     .cardColors(
+                         containerColor = Color(0xFFEAABF4)
+                     )
+             ) {
+                 Column(
+                     horizontalAlignment = Alignment.CenterHorizontally,
+                     verticalArrangement = Arrangement.Center,
+                     modifier = Modifier
+                         .fillMaxSize()
+                 ) {
+                     Icon(
+                         imageVector = Icons.Filled.DownhillSkiing,
+                         contentDescription = "",
+                         tint = Color.White
+                     )
+                     Text(
+                         text = "Snow",
+                         color = Color.White
+                     )
+                 }
 
-}
+             }
+         }
+
+         item{
+             Card(
+                 modifier = Modifier
+                     .padding(end = 10.dp)
+                     .size(width = 150.dp, height = 90.dp),
+                 colors = CardDefaults
+                     .cardColors(
+                         containerColor = Color(0xFFEAABF4)
+                     )
+             ) {
+                 Column(
+                     horizontalAlignment = Alignment.CenterHorizontally,
+                     verticalArrangement = Arrangement.Center,
+                     modifier = Modifier
+                         .fillMaxSize()
+                 ) {
+                     Icon(
+                         imageVector = Icons.Filled.BeachAccess,
+                         contentDescription = "",
+                         tint = Color.White
+                     )
+                     Text(
+                         text = "Montain",
+                         color = Color.White
+                     )
+                 }
+
+             }
+         }
+     }
+         Box(
+             modifier = Modifier
+                 .width(70.dp)
+                 .offset(x = 300.dp, y = 220.dp)
+                 .height(70.dp)
+                 .background(
+                     color = Color(0xFFCF06F0),
+                     shape = RoundedCornerShape(40.dp)
+                 )
+         ){
+             Icon(
+                 imageVector = Icons.Default.Add,
+                 tint = Color.White,
+                 contentDescription = "",
+                 modifier = Modifier
+                     .width(80.dp)
+                     .height(80.dp)
+             )
+         }
+         OutlinedTextField(
+             value ="",
+             onValueChange = {},
+             modifier = Modifier
+                 .fillMaxWidth()
+                 .padding( start = 15.dp, bottom = 15.dp, end = 15.dp)
+                 .offset(y = -30.dp),
+             colors = TextFieldDefaults
+                 .colors(
+                     unfocusedContainerColor = Color(0xffffffff),
+                     unfocusedLeadingIconColor = Color(0xFFFFFFFF),
+                     unfocusedIndicatorColor = Color(0xFFFFFFFF),
+                     focusedIndicatorColor = Color(0xFFFFFFFF)
+                 ),
+             shape = RoundedCornerShape(20.dp),
+             placeholder = {
+                 Text(
+                     text = "Search your destiny",
+                     color = Color(0xFFA09C9C)
+                 )
+             },
+             trailingIcon = {
+                 IconButton(onClick = { /*TODO*/ }) {
+                     Icon(
+                         imageVector = Icons.Default.Search ,
+                         contentDescription = "",
+                         tint = Color(0xFFA09C9C)
+                     )
+                 }
+             }
+         )
+
+         Text(
+             text = "Past Trips",
+             color = Color(0xFF565454),
+             modifier = Modifier
+                 .padding(20.dp)
+         )
+     }
+        LazyColumn(
+            modifier = Modifier
+                .padding(8.dp)
+        ){
+            item {
+                Card(modifier = Modifier
+                    .fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )
+                ){
+                    Column {
+                        Image(
+                            painter = painterResource(id = R.drawable.london),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(5.dp),
+                            contentScale = ContentScale.Crop
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Start
+                        ) {
+                            Text(
+                                text = "London, 2019",
+                                modifier = Modifier
+                                    .padding(5.dp),
+                                color = Color(0xFFCF06F0)
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "London is the capital and largest city of  the United Kingdom, with a population of just under 9 million.",
+                                fontSize = 12.sp,
+                                lineHeight = 16.sp,
+                                color = Color(0xFFA09C9C),
+                                modifier = Modifier
+                                    .padding(5.dp)
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(
+                                text = "18 Feb - 21 Feb",
+                                color = Color(0xFFCF06F0),
+                                fontSize = 14.sp,
+                                modifier = Modifier
+                                    .padding(end = 5.dp, bottom = 8.dp)
+                            )
+                        }
+                    }
+
+
+
+                }
+            }
+
+            item {
+                Card(modifier = Modifier
+                    .fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )
+                ){
+                    Column {
+                        Image(
+                            painter = painterResource(id = R.drawable.porto),
+                            contentDescription = "",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(5.dp),
+                            contentScale = ContentScale.Crop
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Start
+                        ) {
+                            Text(
+                                text = "Porto, 2022",
+                                modifier = Modifier
+                                    .padding(5.dp),
+                                color = Color(0xFFCF06F0)
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "Porto is the second city in Portugal, the capital of the Oporto District, and one of the Iberian Peninsula's major urban areas.",
+                                fontSize = 12.sp,
+                                lineHeight = 16.sp,
+                                color = Color(0xFFA09C9C),
+                                modifier = Modifier
+                                    .padding(5.dp)
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(
+                                text = "15 may - 22 may",
+                                color = Color(0xFFCF06F0),
+                                fontSize = 14.sp,
+                                modifier = Modifier
+                                    .padding(end = 5.dp, bottom = 8.dp)
+                            )
+                        }
+                    }
+
+
+
+                }
+            }
+        }
     }
 
 }
