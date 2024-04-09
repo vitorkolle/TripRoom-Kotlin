@@ -222,7 +222,7 @@ fun TelaHome(controleDeNavegacao: NavHostController) {
                                     tint = Color.White
                                 )
                                 Text(
-                                    text = "Montain",
+                                    text = "Beach",
                                     color = Color.White
                                 )
                             }
