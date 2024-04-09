@@ -32,6 +32,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -232,9 +234,14 @@ fun TelaHome(controleDeNavegacao: NavHostController) {
                     modifier = Modifier
                         .height(30.dp)
                 )
+                var destinoState = remember{
+                    mutableStateOf("")
+                }
                 OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
+                    value = destinoState.value,
+                    onValueChange = {
+                        destinoState.value = it
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 15.dp, bottom = 15.dp, end = 15.dp),
