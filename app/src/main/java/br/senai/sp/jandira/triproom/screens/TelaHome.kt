@@ -237,7 +237,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     text = "Past Trips",
                     color = Color(0xFF565454),
                     modifier = Modifier
-                        .padding(15.dp)
+                        .padding(top = 10.dp, start = 10.dp)
                 )
             }
             LazyColumn(
@@ -248,7 +248,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(12.dp),
+                            .padding(start = 12.dp, end = 12.dp, top = 2.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = Color(0xFFFFFFFF)
                         ),

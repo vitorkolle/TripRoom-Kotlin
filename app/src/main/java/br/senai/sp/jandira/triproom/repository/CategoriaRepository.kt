@@ -29,8 +29,20 @@ class CategoriaRepository {
         beach.imagem = painterResource(
             id = R.drawable.beach
         )
+        val houseboat = Categoria()
+        houseboat.id = 4
+        houseboat.nome = "Houseboat"
+        houseboat.imagem = painterResource(
+            id = R.drawable.houseboat
+        )
+        val camping = Categoria()
+        camping.id = 5
+        camping.nome = "Camping"
+        camping.imagem = painterResource(
+            id = R.drawable.camping
+        )
 
-        return listOf(mountain, snow, beach)
+        return listOf(mountain, snow, beach, houseboat, camping)
     }
 
 }

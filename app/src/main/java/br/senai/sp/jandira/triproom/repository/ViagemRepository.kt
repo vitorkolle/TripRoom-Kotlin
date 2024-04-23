@@ -34,9 +34,8 @@ class ViagemRepository {
         gramado.descricao = "Gramado é uma cidade com uma estância de montanha situada no estado mais a sul do Brasil, Rio Grande do Sul."
         gramado.dataChegada = LocalDate.of(2019, 2, 18)
         gramado.dataPartida = LocalDate.of(2019, 2, 21)
-        gramado.imagem = painterResource(
-            id = R.drawable.gramado
-        )
+        gramado.imagem = null
+
         val fortaleza = Viagem()
         fortaleza.id = 4
         fortaleza.destino = "Fortaleza"
@@ -52,9 +51,7 @@ class ViagemRepository {
         recife.descricao = "Recife, a capital do estado de Pernambuco, no nordeste do Brasil, distingue-se pelos seus vários rios, pontes, ilhéus e penínsulas. Recife Antigo, na própria ilha junto ao porto, é o centro histórico da cidade antiga que data do século XVI. "
         recife.dataChegada = LocalDate.of(2019, 2, 18)
         recife.dataPartida = LocalDate.of(2019, 2, 21)
-        recife.imagem = painterResource(
-            id = R.drawable.recife
-        )
+        recife.imagem = null
 
         return listOf(londres, porto, gramado, fortaleza, recife)
 
