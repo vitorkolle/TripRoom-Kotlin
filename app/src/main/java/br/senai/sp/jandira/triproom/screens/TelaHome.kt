@@ -248,7 +248,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 12.dp, end = 12.dp, top = 2.dp),
+                            .padding(start = 12.dp, end = 12.dp, top = 2.dp, bottom = 10.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = Color(0xFFFFFFFF)
                         ),
