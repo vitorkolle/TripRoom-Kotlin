@@ -23,6 +23,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.BeachAccess
 import androidx.compose.material.icons.filled.DownhillSkiing
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
@@ -44,15 +45,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import br.senai.sp.jandira.triproom.R
 import br.senai.sp.jandira.triproom.reduzirData
+import br.senai.sp.jandira.triproom.repository.CategoriaRepository
 import br.senai.sp.jandira.triproom.repository.ViagemRepository
 import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 
@@ -60,6 +65,7 @@ import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 fun TelaHome(controleDeNavegacao: NavHostController?) {
 
     val viagens = ViagemRepository().listarTodasAsViagens()
+    val categorias = CategoriaRepository().listarTodasAsCategorias()
 
     TripRoomTheme {
         Column(
@@ -147,17 +153,49 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     text = "Categories",
                     color = Color(0xFF565454),
                     modifier = Modifier
-                        .padding(20.dp)
+                        .padding(15.dp)
                 )
                 LazyRow(
                     modifier = Modifier
                         .offset(x = 10.dp)
                 ) {
-                    items()
+                    items(categorias){
+                        Card(
+                            colors = CardDefaults.cardColors(
+                                containerColor = Color(0xFFCF06F0)
+                            ),
+                            modifier = Modifier
+                                .height(90.dp)
+                                .width(150.dp)
+                                .padding(end = 12.dp)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 10.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ){
+                                Image(
+                                    if(it.imagem == null) painterResource(id = R.drawable.no_image) else it.imagem!!,
+                                    contentDescription = "",
+                                    modifier = Modifier
+                                        .width(40.dp)
+                                        .height(40.dp),
+                                    contentScale = ContentScale.FillBounds,
+                                    colorFilter = ColorFilter.tint(Color.White)
+                                )
+                                Text(
+                                    text = it.nome,
+                                    color = Color.White,
+                                )
+
+                            }
+                        }
+                    }
                 }
                 Spacer(
                     modifier = Modifier
-                        .height(30.dp)
+                        .height(15.dp)
                 )
                 var destinoState = remember{
                     mutableStateOf("")
@@ -199,20 +237,20 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     text = "Past Trips",
                     color = Color(0xFF565454),
                     modifier = Modifier
-                        .padding(20.dp)
+                        .padding(15.dp)
                 )
             }
             LazyColumn(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(6.dp)
             ) {
                 items(viagens){
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(4.dp),
+                            .padding(12.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFE9E8E8)
+                            containerColor = Color(0xFFFFFFFF)
                         ),
 
                     ) {
