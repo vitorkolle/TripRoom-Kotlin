@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -62,9 +63,6 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
     var mensagemErroState = remember{
         mutableStateOf(" ")
     }
-
-    val cr = UsuarioRepository(LocalContext.current)
-    val usuarios = cr.listarTodosOsContatos()
 
         Surface {
             Column(
@@ -99,13 +97,13 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
 
                     ) {
                     Text(
-                        text = "Login",
+                        text = stringResource(id = R.string.login),
                         fontSize = 58.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFFCF06F0)
                     )
                     Text(
-                        text = "Please sign in to continue.",
+                        text = stringResource(id = R.string.sign_in_message),
                         color = Color(0xFFA09C9C)
                     )
                     Spacer(modifier = Modifier.height(90.dp))
@@ -160,7 +158,7 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                                 focusedIndicatorColor = Color(0xFFCF06F0)
                             ),
                         label = {
-                            Text(text = "Password")
+                            Text(text = stringResource(id = R.string.password))
                         },
                         modifier = Modifier
                             .width(600.dp),
@@ -200,7 +198,7 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                             ) {
                                 Row {
                                     Text(
-                                        text = "SIGN IN",
+                                        text = stringResource(id = R.string.sign_in),
                                         fontWeight = FontWeight.ExtraBold,
                                         fontSize = 16.sp
                                     )
@@ -217,11 +215,11 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                             Spacer(modifier = Modifier.height(30.dp))
                             Row {
                                 Text(
-                                    text = "Don’t have an account? ",
+                                    text = stringResource(id = R.string.no_account),
                                     color = Color(0xFFA09C9C)
                                 )
                                 Text(
-                                    text = "Sign up",
+                                    text = stringResource(id = R.string.sign_up),
                                     color = Color(0xFFCF06F0),
                                     fontWeight = FontWeight.ExtraBold,
                                     modifier = Modifier

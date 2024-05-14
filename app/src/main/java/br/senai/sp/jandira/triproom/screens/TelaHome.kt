@@ -49,6 +49,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -132,12 +133,12 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                                 tint = Color.White
                             )
                             Text(
-                                text = "You're in Paris",
+                                text = stringResource(id = R.string.in_paris),
                                 color = Color.White,
                             )
                         }
                         Text(
-                            text = "My Trips",
+                            text = stringResource(id = R.string.my_trips),
                             fontSize = 30.sp,
                             color = Color.White,
                             fontWeight = FontWeight.Bold
@@ -150,7 +151,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
 
             Column {
                 Text(
-                    text = "Categories",
+                    text = stringResource(id = R.string.categories),
                     color = Color(0xFF565454),
                     modifier = Modifier
                         .padding(15.dp)
@@ -218,7 +219,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     shape = RoundedCornerShape(20.dp),
                     placeholder = {
                         Text(
-                            text = "Search your destiny",
+                            text = stringResource(id = R.string.search_destiny),
                             color = Color(0xFFA09C9C)
                         )
                     },
@@ -234,7 +235,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                 )
 
                 Text(
-                    text = "Past Trips",
+                    text = stringResource(id = R.string.past_trips),
                     color = Color(0xFF565454),
                     modifier = Modifier
                         .padding(top = 10.dp, start = 10.dp)

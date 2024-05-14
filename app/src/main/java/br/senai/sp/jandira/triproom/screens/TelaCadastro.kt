@@ -38,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -76,7 +77,6 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
     var checkState = remember {
         mutableStateOf(false)
     }
-
     val cr = UsuarioRepository(LocalContext.current)
 
         Column(
@@ -112,13 +112,13 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
 
             ) {
                 Text(
-                    text = "Sign Up",
+                    text = stringResource(id = R.string.sign_up),
                     fontSize = 58.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFFCF06F0)
                 )
                 Text(
-                    text = "Create a new account",
+                    text = stringResource(id = R.string.new_account),
                     color = Color(0xFFA09C9C)
                 )
                 Spacer(modifier = Modifier.height(20.dp))
@@ -147,7 +147,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = "Username")
+                        Text(text = stringResource(id = R.string.username))
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -179,7 +179,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = "Phone")
+                        Text(text = stringResource(id = R.string.phone))
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -241,7 +241,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = "Password")
+                        Text(text = stringResource(id = R.string.password))
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -271,7 +271,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                         }
                     )
                     Text(
-                        text = "Over 18?"
+                        text = stringResource(id = R.string.over_18)
                     )
                 }
                 Text(
@@ -314,7 +314,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                         ) {
                             Row {
                                 Text(
-                                    text = "CREATE ACCOUNT",
+                                    text = stringResource(id = R.string.create_account),
                                     fontWeight = FontWeight.ExtraBold,
                                     fontSize = 16.sp
                                 )
@@ -326,11 +326,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                                 .padding(12.dp,0.dp)
                         ) {
                             Text(
-                                text = "Already have an account?",
+                                text = stringResource(id = R.string.already_account),
                                 color = Color(0xFF7A3C3C)
                             )
                             Text(
-                                text = "Sign in",
+                                text = stringResource(id = R.string.sign_up),
                                 color = Color(0xFFCF06F0),
                                 fontWeight = FontWeight.ExtraBold,
                                 modifier = Modifier

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trip Room</string>
+    <string name="login">Conecte-se</string>
+    <string name="sign_in_message">Conecte-se para continuar</string>
+    <string name="password">Senha</string>
+    <string name="sign_in">CONECTE-SE</string>
+    <string name="sign_up">Inscrever-se</string>
+    <string name="no_account">Não tem uma conta?</string>
+    <string name="new_account">Criar uma nova conta</string>
+    <string name="username">Nome de usuário</string>
+    <string name="phone">Telefone</string>
+    <string name="over_18">Maior de 18 anos?</string>
+    <string name="create_account">CRIAR UMA CONTA</string>
+    <string name="already_account">Já tem uma conta?</string>
+    <string name="in_paris">Você está em Paris</string>
+    <string name="my_trips">Minhas viagens</string>
+    <string name="categories">Categorias</string>
+    <string name="search_destiny">Procure seu destino</string>
+    <string name="past_trips">Viagens anteriores</string>
+</resources>

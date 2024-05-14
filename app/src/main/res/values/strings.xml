@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Trip Room</string>
+    <string name="login">Login</string>
+   <string name="sign_in_message">Please sign in to continue.</string>
+   <string name="password">Password</string>
+   <string name="sign_in">SIGN IN</string>
+   <string name="sign_up">Sign up</string>
+   <string name="no_account">Don’t have an account?</string>
+   <string name="new_account">Create a new account</string>
+   <string name="username">Username</string>
+   <string name="phone">Phone</string>
+   <string name="over_18">Over 18?</string>
+   <string name="create_account">CREATE ACCOUNT</string>
+   <string name="already_account">Already have an account?</string>
+   <string name="in_paris">You are in Paris</string>
+   <string name="my_trips">My Trips</string>
+   <string name="categories">Categories</string>
+   <string name="search_destiny">Search your destiny</string>
+   <string name="past_trips">Past Trips</string>
 </resources>
