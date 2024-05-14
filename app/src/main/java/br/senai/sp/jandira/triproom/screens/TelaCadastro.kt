@@ -36,6 +36,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -45,6 +46,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import br.senai.sp.jandira.triproom.R
+import br.senai.sp.jandira.triproom.dao.UsuarioDao
+import br.senai.sp.jandira.triproom.model.Usuario
+import br.senai.sp.jandira.triproom.repository.UsuarioRepository
 import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 
 @Composable
@@ -72,7 +76,9 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
     var checkState = remember {
         mutableStateOf(false)
     }
-    TripRoomTheme {
+
+    val cr = UsuarioRepository(LocalContext.current)
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -289,6 +295,12 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(
                             onClick = {
+                                    val usuario = Usuario(
+                                        nome = nomeState.value,
+                                        email = emailState.value,
+                                        telefone = phoneState.value
+                                    )
+                                    cr.salvar(usuario)
                                     controleDeNavegacao.navigate("Home")
                             },
                             colors = ButtonDefaults.buttonColors(
@@ -342,7 +354,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                     modifier = Modifier
                         .width(120.dp)
                         .height(40.dp)
-                        .offset(y = 23.dp)
+                        .offset(y = 38.dp)
                         .background(
                             Color(0xFFCF06F0),
                             shape = RoundedCornerShape(topEnd = 10.dp)
@@ -351,12 +363,11 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
             }
         }
     }
-}
 
 @Preview
 @Composable
 fun TelaCadastroPreview() {
     TripRoomTheme {
-       // TelaCadastro()
+       //TelaCadastro()
     }
 }
