@@ -2,9 +2,15 @@ package br.senai.sp.jandira.triproom.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import br.senai.sp.jandira.triproom.R
+
+
+val PoppinsRegular = FontFamily(Font(R.font.poppins_regular))
+val PoppinsBold = FontFamily(Font(R.font.poppins_bold))
 
 // Set of Material typography styles to start with
 val Typography = Typography(

@@ -17,12 +17,12 @@ interface UsuarioDao {
     fun excluir(contato: Usuario)
 
     @Query("select * from tbl_usuarios order by nome asc")
-    fun listarTodosOsContatos() : List<Usuario>
+    fun listarTodosOsUsuarios() : List<Usuario>
 
-    @Query("select * from tbl_usuarios where nome = :nome order by nome asc")
-    fun buscarContatoPeloNome(nome : String) : List<Usuario>
+    @Query("select * from tbl_usuarios where email = :email order by email asc")
+    fun buscarUsuarioPeloEmail(email : String) : List<Usuario>
 
-    @Query("select * from tbl_usuarios where id = :id")
-    fun buscarContatoPeloId(id : Long) : Usuario
+    @Query("select * from tbl_usuarios where senha = :senha order by senha asc")
+    fun conferirSenha(senha : String) : List<Usuario>
 
 }

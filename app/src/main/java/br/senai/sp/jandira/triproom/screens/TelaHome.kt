@@ -60,6 +60,8 @@ import br.senai.sp.jandira.triproom.R
 import br.senai.sp.jandira.triproom.reduzirData
 import br.senai.sp.jandira.triproom.repository.CategoriaRepository
 import br.senai.sp.jandira.triproom.repository.ViagemRepository
+import br.senai.sp.jandira.triproom.ui.theme.PoppinsBold
+import br.senai.sp.jandira.triproom.ui.theme.PoppinsRegular
 import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 
 @Composable
@@ -104,6 +106,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                         Text(
                             text = "Susanna Hoffs",
                             color = Color.White,
+                            fontFamily = PoppinsRegular,
                             modifier = Modifier
                                 .offset(x = -18.dp, y = 6.dp)
                         )
@@ -134,6 +137,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                             )
                             Text(
                                 text = stringResource(id = R.string.in_paris),
+                                fontFamily = PoppinsRegular,
                                 color = Color.White,
                             )
                         }
@@ -141,7 +145,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                             text = stringResource(id = R.string.my_trips),
                             fontSize = 30.sp,
                             color = Color.White,
-                            fontWeight = FontWeight.Bold
+                            fontFamily = PoppinsBold
                         )
                     }
 
@@ -153,6 +157,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                 Text(
                     text = stringResource(id = R.string.categories),
                     color = Color(0xFF565454),
+                    fontFamily = PoppinsRegular,
                     modifier = Modifier
                         .padding(15.dp)
                 )
@@ -220,6 +225,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                     placeholder = {
                         Text(
                             text = stringResource(id = R.string.search_destiny),
+                            fontFamily = PoppinsRegular,
                             color = Color(0xFFA09C9C)
                         )
                     },
@@ -236,6 +242,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
 
                 Text(
                     text = stringResource(id = R.string.past_trips),
+                    fontFamily = PoppinsRegular,
                     color = Color(0xFF565454),
                     modifier = Modifier
                         .padding(top = 10.dp, start = 10.dp)
@@ -275,11 +282,13 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                             ) {
                                 Text(
                                     text = "${it.destino}, ${it.dataChegada.year}",
+                                    fontFamily = PoppinsRegular,
                                     color = Color(0xFFCF06F0),
                                     fontSize = 24.sp
                                 )
                                 Text(
                                     text = it.descricao,
+                                    fontFamily = PoppinsRegular,
                                     fontSize = 14.sp,
                                     lineHeight = 18.sp,
                                     color = Color(0xFFA09C9C),
@@ -293,6 +302,7 @@ fun TelaHome(controleDeNavegacao: NavHostController?) {
                                 ) {
                                     Text(
                                         text = "${reduzirData(it.dataChegada)} - ${reduzirData(it.dataPartida)}",
+                                        fontFamily = PoppinsRegular,
                                         color = Color(0xFFCF06F0),
                                         modifier = Modifier
                                             .padding(2.dp)

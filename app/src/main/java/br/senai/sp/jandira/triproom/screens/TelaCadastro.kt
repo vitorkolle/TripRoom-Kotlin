@@ -39,6 +39,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -50,6 +51,8 @@ import br.senai.sp.jandira.triproom.R
 import br.senai.sp.jandira.triproom.dao.UsuarioDao
 import br.senai.sp.jandira.triproom.model.Usuario
 import br.senai.sp.jandira.triproom.repository.UsuarioRepository
+import br.senai.sp.jandira.triproom.ui.theme.PoppinsBold
+import br.senai.sp.jandira.triproom.ui.theme.PoppinsRegular
 import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 
 @Composable
@@ -77,7 +80,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
     var checkState = remember {
         mutableStateOf(false)
     }
-    val cr = UsuarioRepository(LocalContext.current)
+   val cr = UsuarioRepository(LocalContext.current)
 
         Column(
             modifier = Modifier
@@ -114,12 +117,13 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                 Text(
                     text = stringResource(id = R.string.sign_up),
                     fontSize = 58.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontFamily = PoppinsBold,
                     color = Color(0xFFCF06F0)
                 )
                 Text(
                     text = stringResource(id = R.string.new_account),
-                    color = Color(0xFFA09C9C)
+                    color = Color(0xFFA09C9C),
+                    fontFamily = PoppinsRegular
                 )
                 Spacer(modifier = Modifier.height(20.dp))
                 Image(
@@ -147,7 +151,10 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = stringResource(id = R.string.username))
+                        Text(
+                            text = stringResource(id = R.string.username),
+                            fontFamily = PoppinsRegular
+                        )
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -179,7 +186,10 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = stringResource(id = R.string.phone))
+                        Text(
+                            text = stringResource(id = R.string.phone),
+                            fontFamily = PoppinsRegular
+                        )
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -210,7 +220,9 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = "E-mail")
+                        Text(
+                            text = "E-mail",
+                            fontFamily = PoppinsRegular)
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -241,7 +253,10 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             focusedIndicatorColor = Color(0xFFCF06F0)
                         ),
                     label = {
-                        Text(text = stringResource(id = R.string.password))
+                        Text(
+                            text = stringResource(id = R.string.password),
+                            fontFamily = PoppinsRegular
+                            )
                     },
                     modifier = Modifier
                         .width(600.dp),
@@ -271,7 +286,8 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                         }
                     )
                     Text(
-                        text = stringResource(id = R.string.over_18)
+                        text = stringResource(id = R.string.over_18),
+                        fontFamily = PoppinsRegular
                     )
                 }
                 Text(
@@ -315,7 +331,7 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                             Row {
                                 Text(
                                     text = stringResource(id = R.string.create_account),
-                                    fontWeight = FontWeight.ExtraBold,
+                                    fontFamily = PoppinsBold,
                                     fontSize = 16.sp
                                 )
                             }
@@ -327,12 +343,13 @@ fun TelaCadastro(controleDeNavegacao: NavHostController) {
                         ) {
                             Text(
                                 text = stringResource(id = R.string.already_account),
+                                fontFamily = PoppinsRegular,
                                 color = Color(0xFF7A3C3C)
                             )
                             Text(
-                                text = stringResource(id = R.string.sign_up),
+                                text = stringResource(id = R.string.login),
                                 color = Color(0xFFCF06F0),
-                                fontWeight = FontWeight.ExtraBold,
+                                fontFamily = PoppinsBold,
                                 modifier = Modifier
                                     .clickable {
                                         controleDeNavegacao.navigate("Login")

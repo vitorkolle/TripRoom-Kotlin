@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import br.senai.sp.jandira.triproom.R
+import br.senai.sp.jandira.triproom.model.Usuario
 import br.senai.sp.jandira.triproom.repository.UsuarioRepository
 import br.senai.sp.jandira.triproom.ui.theme.TripRoomTheme
 
@@ -63,6 +64,8 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
     var mensagemErroState = remember{
         mutableStateOf(" ")
     }
+
+    val cr = UsuarioRepository(LocalContext.current)
 
         Surface {
             Column(
@@ -181,7 +184,7 @@ fun TelaLogin(controleDeNavegacao: NavHostController) {
                         Column(horizontalAlignment = Alignment.End) {
                             Button(
                                 onClick = {
-                                          if (emailState.value == "aluno@gmail.com" && senhaState.value == "1234") {
+                                          if (cr.buscarUsuario(emailState.value).isEmpty() == false  && cr.buscarSenha(senhaState.value).isEmpty() == false) {
                                               controleDeNavegacao.navigate("Home")
                                           }else{
                                               erroState.value = true
